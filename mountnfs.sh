@@ -14,10 +14,23 @@
 # - Test to see if the input mount is already mounted
 
 # Set variables (defined in help)
-nroot=/media/zfs
-nfs_srv=ustack03.local.afturmath.com
-nfs_dir=/mnt
+nroot=
+nfs_srv=
+nfs_dir=
 ndebug=0
+
+if [[ ! "$nroot" ]]; then
+    echo "Error: nroot must be set in the script variables"
+    exit
+fi
+if [[ ! "$nfs_srv" ]]; then
+    echo "Error: nfs_srv must be set in the script variables"
+    exit
+fi
+if [[ ! "$nfs_dir" ]]; then
+    echo "Error: nfs_dir must be set in the script variables"
+    exit
+fi
 
 printhelp(){
     echo "mountnfs.sh"
